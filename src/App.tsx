@@ -71,7 +71,7 @@ const App = () => {
     return (
         <ContextLocation.Provider value={[location, setLocation]}>
             <ContextErrorText.Provider value={[errorText, setErrorText]}>
-                <main className="flex min-h-screen bg-gradient-to-b from-blue-950 to-blue-900 min-w-48">
+                <main className="flex min-h-lvh bg-gradient-to-b from-blue-950 to-blue-900 min-w-48">
                     <Canvas />
                 </main>
             </ContextErrorText.Provider>
