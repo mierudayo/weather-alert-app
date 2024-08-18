@@ -7,6 +7,7 @@ import Searchbar from './Searchbar'
 import CenteredText from './CenteredText'
 import TemperatureText from './TemperatureText'
 import MarginText from './MarginText'
+import { useScreenWidth } from '../hooks/useScreenWidth'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -26,6 +27,8 @@ const Canvas = () => {
         )
     }
     const [errorText, setErrorText] = contextErrorText
+
+    const screenWidth = useScreenWidth()
 
     const [weekday, setWeekday] = useState<
         | 'Sunday'
@@ -143,7 +146,11 @@ const Canvas = () => {
     }, [fetchData, weatherData])
 
     return (
-        <div className="flex flex-col mt-8 mx-auto h-fit bg-zinc-50 text-blue-950 rounded-lg w-full max-w-96">
+        <div
+            className={`flex flex-col mx-auto h-fit bg-zinc-50 text-blue-950 rounded-lg w-full max-w-96 ${
+                screenWidth.includes('LANDSCAPE') ? 'm-auto' : 'mt-8'
+            }`}
+        >
             <Searchbar
                 handleClick={handleClick}
                 handleKeyDownButton={handleKeyDownButton}
