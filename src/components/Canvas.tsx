@@ -8,6 +8,7 @@ import CenteredText from './CenteredText'
 import TemperatureText from './TemperatureText'
 import MarginText from './MarginText'
 import { useScreenWidth } from '../hooks/useScreenWidth'
+import LoadingText from './LoadingText'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -43,6 +44,7 @@ const Canvas = () => {
     const [weatherData, setWeatherData] = useState<weatherDataProps | null>(
         null
     )
+    const [isLoading, setIsLoading] = useState(false)
 
     const currentLocation = useRef(location)
 
@@ -81,6 +83,8 @@ const Canvas = () => {
     const fetchData = useCallback(async () => {
         const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${currentLocation.current}&aqi=yes`
 
+        setIsLoading(true)
+
         try {
             const response = await fetch(url)
             if (response.status === 400) {
@@ -103,6 +107,8 @@ const Canvas = () => {
             }
         } catch (e: any) {
             console.error(e)
+        } finally {
+            setIsLoading(false)
         }
     }, [setErrorText])
 
@@ -156,50 +162,64 @@ const Canvas = () => {
                 handleKeyDownButton={handleKeyDownButton}
                 handleKeyDownInput={handleKeyDownInput}
             />
-            {errorText && <ErrorText />}
-            {weatherData && (
-                <div className="flex flex-col px-4 py-2">
-                    <div className="flex flex-row gap-1 flex-wrap justify-center">
-                        <span className="text-base lg:text-lg">
-                            {weatherData.location.name + ','}
-                        </span>
-                        <span className="text-base lg:text-lg">
-                            {weatherData.location.region + ','}
-                        </span>
-                        <span className="text-base lg:text-lg">
-                            {weatherData.location.country}
-                        </span>
-                    </div>
-                    {weekday && <MarginText content={weekday} />}
-                    <MarginText content={weatherData.location.localtime} />
-                    <div className="grid grid-cols-3 gap-2 mt-2 place-items-center text-center">
-                        <TemperatureText content={weatherData.current.temp_c} />
-                        <Icon type={weatherData.current.condition.text} />
-                        <span className="flex flex-row flex-wrap justify-center text-center items-center gap-x-1">
-                            <span>feels like</span>
-                            <TemperatureText
-                                content={weatherData.current.feelslike_c}
+            {!isLoading ? (
+                <>
+                    {errorText && <ErrorText />}
+                    {weatherData && (
+                        <div className="flex flex-col px-4 py-2">
+                            <div className="flex flex-row gap-1 flex-wrap justify-center">
+                                <span className="text-base lg:text-lg">
+                                    {weatherData.location.name + ','}
+                                </span>
+                                <span className="text-base lg:text-lg">
+                                    {weatherData.location.region + ','}
+                                </span>
+                                <span className="text-base lg:text-lg">
+                                    {weatherData.location.country}
+                                </span>
+                            </div>
+                            {weekday && <MarginText content={weekday} />}
+                            <MarginText
+                                content={weatherData.location.localtime}
                             />
-                        </span>
-                    </div>
-                    <div className="flex m-auto pb-2 text-lg lg:text-xl font-bold break-all text-center">
-                        {weatherData.current.condition.text}
-                    </div>
-                    <div className="grid grid-cols-2 place-items-center">
-                        <Icon type="Humidity" />
-                        <Icon type="Wind" />
-                        <CenteredText
-                            content={weatherData.current.humidity}
-                            text="Humidity"
-                            unit="%"
-                        />
-                        <CenteredText
-                            content={weatherData.current.wind_kph}
-                            text="Wind Strength"
-                            unit="km/h"
-                        />
-                    </div>
-                </div>
+                            <div className="grid grid-cols-3 gap-2 mt-2 place-items-center text-center">
+                                <TemperatureText
+                                    content={weatherData.current.temp_c}
+                                />
+                                <Icon
+                                    type={weatherData.current.condition.text}
+                                />
+                                <span className="flex flex-row flex-wrap justify-center text-center items-center gap-x-1">
+                                    <span>feels like</span>
+                                    <TemperatureText
+                                        content={
+                                            weatherData.current.feelslike_c
+                                        }
+                                    />
+                                </span>
+                            </div>
+                            <div className="flex m-auto pb-2 text-lg lg:text-xl font-bold break-all text-center">
+                                {weatherData.current.condition.text}
+                            </div>
+                            <div className="grid grid-cols-2 place-items-center">
+                                <Icon type="Humidity" />
+                                <Icon type="Wind" />
+                                <CenteredText
+                                    content={weatherData.current.humidity}
+                                    text="Humidity"
+                                    unit="%"
+                                />
+                                <CenteredText
+                                    content={weatherData.current.wind_kph}
+                                    text="Wind Strength"
+                                    unit="km/h"
+                                />
+                            </div>
+                        </div>
+                    )}
+                </>
+            ) : (
+                <LoadingText />
             )}
         </div>
     )
