@@ -65,7 +65,6 @@ const Icon: FC<IconProps> = ({ type }) => {
         <svg
             className="max-w-16 max-h-16 text-gray-800 dark:text-white"
             version="1.1"
-            id="Uploaded to svgrepo.com"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 24 24"
@@ -191,8 +190,6 @@ const Icon: FC<IconProps> = ({ type }) => {
         <svg
             className="max-w-16 max-h-16 text-gray-800 dark:text-white"
             viewBox="0 0 64 64"
-            data-name="Layer 1"
-            id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
             fill="#000000"
             stroke="#000000"
@@ -250,9 +247,8 @@ const Icon: FC<IconProps> = ({ type }) => {
 
     const flag = (
         <svg
-            className="w-6 h-6 text-gray-800 dark:text-white"
+            className="w-10 h-10 text-gray-800 dark:text-white"
             version="1.0"
-            id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 64 64"
@@ -475,7 +471,6 @@ const Icon: FC<IconProps> = ({ type }) => {
         <svg
             className="max-w-16 max-h-16 text-gray-800 dark:text-white"
             version="1.1"
-            id="Uploaded to svgrepo.com"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 24 24"
@@ -595,7 +590,6 @@ const Icon: FC<IconProps> = ({ type }) => {
         <svg
             className="max-w-16 max-h-16 text-gray-800 dark:text-white"
             version="1.1"
-            id="Uploaded to svgrepo.com"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 24 24"
@@ -633,7 +627,6 @@ const Icon: FC<IconProps> = ({ type }) => {
         <svg
             className="max-w-16 max-h-16 text-gray-800 dark:text-white"
             version="1.1"
-            id="Uploaded to svgrepo.com"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 32 32"
@@ -829,7 +822,6 @@ const Icon: FC<IconProps> = ({ type }) => {
         <svg
             className="max-w-16 max-h-16 text-gray-800 dark:text-white"
             version="1.1"
-            id="Uploaded to svgrepo.com"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 24 24"
@@ -874,7 +866,6 @@ const Icon: FC<IconProps> = ({ type }) => {
         <svg
             className="max-w-16 max-h-16 text-gray-800 dark:text-white"
             version="1.1"
-            id="Uploaded to svgrepo.com"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 24 24"
@@ -908,7 +899,6 @@ const Icon: FC<IconProps> = ({ type }) => {
         <svg
             className="max-w-16 max-h-16 text-gray-800 dark:text-white"
             version="1.1"
-            id="Uploaded to svgrepo.com"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 32 32"
@@ -1042,7 +1032,6 @@ const Icon: FC<IconProps> = ({ type }) => {
         <svg
             className="max-w-16 max-h-16 text-gray-800 dark:text-white"
             version="1.1"
-            id="Uploaded to svgrepo.com"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 32 32"
