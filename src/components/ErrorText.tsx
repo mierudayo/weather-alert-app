@@ -18,7 +18,9 @@ const ErrorText = () => {
                 <Icon type={'Error'} />
                 <Icon type={'404'} />
             </div>
-            <div className="text-base lg:text-lg text-center">{errorText}</div>
+            <div className="text-base lg:text-lg text-center overflow-hidden">
+                {errorText}
+            </div>
         </div>
     )
 }
