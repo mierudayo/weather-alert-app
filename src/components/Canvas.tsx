@@ -182,7 +182,7 @@ const Canvas = () => {
                             <MarginText
                                 content={weatherData.location.localtime}
                             />
-                            <div className="flex flex-col bg-zinc-300/90 rounded-md p-2 m-2">
+                            <div className="flex flex-col bg-zinc-300/90 rounded-md p-2 mx-2 my-4">
                                 <div className="grid grid-cols-3 gap-2 mt-2 place-items-center text-center">
                                     <TemperatureText
                                         content={weatherData.current.temp_c}
