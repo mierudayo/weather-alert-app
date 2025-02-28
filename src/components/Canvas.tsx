@@ -153,7 +153,7 @@ const Canvas = () => {
 
     return (
         <div
-            className={`flex flex-col mx-auto h-fit bg-zinc-50 text-blue-950 rounded-lg w-full max-w-96 ${
+            className={`flex flex-col mx-auto h-fit bg-zinc-50 text-blue-950 rounded-lg w-full max-w-96 md:max-w-lg ${
                 screenWidth.includes('LANDSCAPE') ? 'm-auto' : 'mt-8'
             }`}
         >
@@ -166,15 +166,15 @@ const Canvas = () => {
                 <>
                     {errorText && <ErrorText />}
                     {weatherData && (
-                        <div className="flex flex-col px-4 py-2">
-                            <div className="flex flex-row gap-1 flex-wrap justify-center">
-                                <span className="text-base lg:text-lg">
+                        <div className="flex flex-col px-4 py-2 md:py-4">
+                            <div className="flex flex-row gap-1 flex-wrap justify-center text-center">
+                                <span className="text-sm min-[320px]:text-base lg:text-lg">
                                     {weatherData.location.name + ','}
                                 </span>
-                                <span className="text-base lg:text-lg">
+                                <span className="text-sm min-[320px]:text-base lg:text-lg">
                                     {weatherData.location.region + ','}
                                 </span>
-                                <span className="text-base lg:text-lg">
+                                <span className="text-sm min-[320px]:text-base lg:text-lg">
                                     {weatherData.location.country}
                                 </span>
                             </div>
@@ -182,24 +182,30 @@ const Canvas = () => {
                             <MarginText
                                 content={weatherData.location.localtime}
                             />
-                            <div className="grid grid-cols-3 gap-2 mt-2 place-items-center text-center">
-                                <TemperatureText
-                                    content={weatherData.current.temp_c}
-                                />
-                                <Icon
-                                    type={weatherData.current.condition.text}
-                                />
-                                <span className="flex flex-row flex-wrap justify-center text-center items-center gap-x-1">
-                                    <span>feels like</span>
+                            <div className="flex flex-col bg-zinc-300/90 rounded-md p-2 m-2">
+                                <div className="grid grid-cols-3 gap-2 mt-2 place-items-center text-center">
                                     <TemperatureText
-                                        content={
-                                            weatherData.current.feelslike_c
+                                        content={weatherData.current.temp_c}
+                                    />
+                                    <Icon
+                                        type={
+                                            weatherData.current.condition.text
                                         }
                                     />
-                                </span>
-                            </div>
-                            <div className="flex m-auto pb-2 text-lg lg:text-xl font-bold break-all text-center">
-                                {weatherData.current.condition.text}
+                                    <span className="flex flex-row flex-wrap justify-center text-center items-center gap-x-2">
+                                        <span className="text-sm min-[320px]:text-base lg:text-lg">
+                                            feels like
+                                        </span>
+                                        <TemperatureText
+                                            content={
+                                                weatherData.current.feelslike_c
+                                            }
+                                        />
+                                    </span>
+                                </div>
+                                <div className="flex m-auto pb-2 text-lg lg:text-xl font-bold break-all text-center">
+                                    {weatherData.current.condition.text}
+                                </div>
                             </div>
                             <div className="grid grid-cols-2 place-items-center">
                                 <Icon type="Humidity" />

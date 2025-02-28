@@ -8,7 +8,7 @@ type CenteredTextProps = {
 
 const CenteredText: FC<CenteredTextProps> = ({ content, text, unit }) => {
     return (
-        <div className="text-base lg:text-lg text-center">
+        <div className="text-sm min-[320px]:text-base lg:text-lg text-center">
             {text} {content}
             {unit}
         </div>
