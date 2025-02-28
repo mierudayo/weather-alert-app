@@ -10,7 +10,7 @@ const ErrorText = () => {
         )
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [errorText, setErrorText] = contextErrorText
+    const [errorText, _setErrorText] = contextErrorText
 
     return (
         <div className="flex flex-col p-2 gap-y-2">

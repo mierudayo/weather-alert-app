@@ -21,7 +21,7 @@ const Searchbar: FC<SearchbarProps> = ({
         )
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [location, setLocation] = contextLocation
+    const [location, _setLocation] = contextLocation
 
     return (
         <div className="flex flex-row p-2 gap-2 items-center m-auto">
