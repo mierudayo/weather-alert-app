@@ -33,7 +33,7 @@ const LocationInput: FC<LocationInputProps> = ({ handleKeyDown }) => {
             autoComplete="country-name"
             title="Enter your Location."
             onChange={handleChange}
-            onKeyDown={handleKeyDown}
+            onKeyDown={location ? handleKeyDown : undefined}
             value={location}
             ref={inputRef}
         />
