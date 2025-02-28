@@ -1,6 +1,7 @@
-import { FC, useContext, useEffect, useRef } from 'react'
-import './locationInput.css'
+import { FC, useContext, useRef } from 'react'
 import { ContextLocation } from '../App'
+import { useAutoFocus } from '../hooks/useAutoFocus'
+import './locationInput.css'
 
 type LocationInputProps = {
     handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
@@ -17,9 +18,7 @@ const LocationInput: FC<LocationInputProps> = ({ handleKeyDown }) => {
 
     const inputRef = useRef<HTMLInputElement | null>(null)
 
-    useEffect(() => {
-        if (!location.length && inputRef.current) inputRef.current?.focus()
-    }, [inputRef, location])
+    useAutoFocus(location, inputRef)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setLocation(e.target.value)
