@@ -166,7 +166,10 @@ const Canvas = () => {
                 <>
                     {errorText && <ErrorText />}
                     {weatherData && (
-                        <div className="flex flex-col px-4 py-2 md:py-4">
+                        <div
+                            className="flex flex-col px-4 py-2 md:py-4"
+                            data-testid="main-content"
+                        >
                             <div className="flex flex-row gap-1 flex-wrap justify-center text-center">
                                 <span className="text-sm min-[320px]:text-base lg:text-lg">
                                     {weatherData.location.name + ','}
@@ -203,7 +206,7 @@ const Canvas = () => {
                                         />
                                     </span>
                                 </div>
-                                <div className="flex m-auto pb-2 text-lg lg:text-xl font-bold break-all text-center">
+                                <div className="flex m-auto pb-2 text-lg lg:text-2xl font-bold break-all text-center">
                                     {weatherData.current.condition.text}
                                 </div>
                             </div>

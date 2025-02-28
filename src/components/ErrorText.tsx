@@ -13,7 +13,7 @@ const ErrorText = () => {
     const [errorText, _setErrorText] = contextErrorText
 
     return (
-        <div className="flex flex-col p-2 gap-y-2">
+        <div className="flex flex-col p-2 gap-y-2" data-testid="error-content">
             <div className="flex flex-row justify-center gap-x-4">
                 <Icon type={'Error'} />
                 <Icon type={'404'} />
