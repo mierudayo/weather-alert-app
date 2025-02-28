@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react'
+import { FC, useContext, useEffect, useRef } from 'react'
 import './locationInput.css'
 import { ContextLocation } from '../App'
 
@@ -15,6 +15,12 @@ const LocationInput: FC<LocationInputProps> = ({ handleKeyDown }) => {
     }
     const [location, setLocation] = contextLocation
 
+    const inputRef = useRef<HTMLInputElement | null>(null)
+
+    useEffect(() => {
+        if (!location.length && inputRef.current) inputRef.current?.focus()
+    }, [inputRef, location])
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setLocation(e.target.value)
     }
@@ -29,6 +35,7 @@ const LocationInput: FC<LocationInputProps> = ({ handleKeyDown }) => {
             onChange={handleChange}
             onKeyDown={handleKeyDown}
             value={location}
+            ref={inputRef}
         />
     )
 }
