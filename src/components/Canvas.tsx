@@ -206,7 +206,7 @@ const Canvas = () => {
                                         />
                                     </span>
                                 </div>
-                                <div className="flex m-auto pb-2 text-lg lg:text-xl font-bold break-all text-center">
+                                <div className="flex m-auto pb-2 text-lg lg:text-2xl font-bold break-all text-center">
                                     {weatherData.current.condition.text}
                                 </div>
                             </div>
