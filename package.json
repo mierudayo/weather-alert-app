@@ -16,9 +16,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
+        "build": "react-scripts build"
     },
     "eslintConfig": {
         "extends": [
@@ -39,7 +37,6 @@
     },
     "devDependencies": {
         "cypress": "^14.2.1",
-        "gh-pages": "^6.1.1",
         "tailwindcss": "^3.4.17"
     }
 }
