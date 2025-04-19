@@ -1,14 +1,13 @@
 import { FC } from 'react'
 
 type TemperatureTextProps = {
-    id?: string
     content: number
 }
 
-const TemperatureText: FC<TemperatureTextProps> = ({ id, content }) => {
+const TemperatureText: FC<TemperatureTextProps> = ({ content }) => {
     return (
         <span className="text-lg lg:text-2xl font-bold">
-            {id ? <span id={id}>{content}</span> : content}
+            {content}
             <span className="font-mono">°</span>C
         </span>
     )
