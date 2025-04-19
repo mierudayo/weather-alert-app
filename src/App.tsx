@@ -17,7 +17,7 @@ export const ContextLocation = createContext<
 
 const App = () => {
     const [location, setLocation] = useState(
-        sessionStorage.getItem('weather-app-location') || ''
+        localStorage.getItem('weather-app-location') || ''
     )
     const [errorText, setErrorText] = useState('')
 

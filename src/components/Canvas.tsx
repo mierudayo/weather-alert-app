@@ -92,7 +92,7 @@ const Canvas = () => {
                     `Oooops! No valid location has been found for '${currentLocation.current}'!`
                 )
                 setWeatherData(null)
-                sessionStorage.removeItem('weather-app-location')
+                localStorage.removeItem('weather-app-location')
                 throw new Error(
                     `No valid location has been found for '${currentLocation.current}'`
                 )
@@ -116,7 +116,7 @@ const Canvas = () => {
         const formattedLocation =
             location.charAt(0).toUpperCase() + location.slice(1).toLowerCase()
         setLocation(formattedLocation)
-        sessionStorage.setItem('weather-app-location', formattedLocation)
+        localStorage.setItem('weather-app-location', formattedLocation)
         currentLocation.current = formattedLocation
 
         fetchData()
@@ -135,7 +135,7 @@ const Canvas = () => {
     }
 
     useEffect(() => {
-        if (sessionStorage.getItem('weather-app-location')) fetchData()
+        if (localStorage.getItem('weather-app-location')) fetchData()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -186,7 +186,7 @@ const Canvas = () => {
                                 content={weatherData.location.localtime}
                             />
                             <div className="flex flex-col bg-zinc-300/90 rounded-md p-2 mx-2 my-4">
-                                <div className="grid grid-cols-3 gap-2 mt-2 place-items-center text-center">
+                                <div className="grid grid-cols-3 gap-2 mt-2 place-items-center text-center temperature">
                                     <TemperatureText
                                         content={weatherData.current.temp_c}
                                     />
