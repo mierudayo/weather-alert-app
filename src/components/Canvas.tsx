@@ -119,6 +119,14 @@ const Canvas = () => {
         localStorage.setItem('weather-app-location', formattedLocation)
         currentLocation.current = formattedLocation
 
+        const params = new URLSearchParams(window.location.search)
+        params.set('location', formattedLocation)
+        window.history.replaceState(
+            {},
+            '',
+            `${window.location.pathname}?${params.toString()}`
+        )
+
         fetchData()
     }
 
@@ -135,7 +143,24 @@ const Canvas = () => {
     }
 
     useEffect(() => {
-        if (localStorage.getItem('weather-app-location')) fetchData()
+        const params = new URLSearchParams(window.location.search)
+        const paramLocation = params.get('location')
+
+        if (paramLocation) {
+            const formattedLocation =
+                paramLocation.charAt(0).toUpperCase() +
+                paramLocation.slice(1).toLowerCase()
+
+            setLocation(formattedLocation)
+            currentLocation.current = formattedLocation
+            localStorage.setItem('weather-app-location', formattedLocation)
+            fetchData()
+        } else if (localStorage.getItem('weather-app-location')) {
+            const savedLocation = localStorage.getItem('weather-app-location')!
+            setLocation(savedLocation)
+            currentLocation.current = savedLocation
+            fetchData()
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
