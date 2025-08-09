@@ -4,7 +4,7 @@
     "private": true,
     "prettier": "prettier-es5",
     "dependencies": {
-        "@types/node": "^16.18.105",
+        "@types/node": "^24.2.1",
         "@types/react": "^18.3.11",
         "@types/react-dom": "^18.3.1",
         "dotenv": "^17.2.0",
